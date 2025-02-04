@@ -74,10 +74,10 @@ const addOrder = () => {
 </script>
 
 <template>
-  <div class="flex flex-col sm:flex-row gap-12">
+  <div class="flex flex-col sm:flex-row gap-12 max-w-[85vw]">
     <div class="flex flex-col">
+      <img class="relative lg:fixed lg:opacity-25 opacity-75 -z-10 w-30 md:w-80 lg:w-100" src="/src/assets/Washing-machine.png" alt="wahing" />
       <h2 class="text-2xl font-bold mb-4 text-center">Wasserij Orderformulier</h2>
-      <img class="fixed bottom-5 right-5 opacity-50 w-30 md:w-80 lg:w-100" src="/src/assets/Washing-machine.png" alt="wahing" />
       <!-- Toggle Button -->
       <button @click="showForm = !showForm" v-if="!isDesktop"
         class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 mb-4">
@@ -114,7 +114,7 @@ const addOrder = () => {
         </div>
       </transition>
     </div>
-    <div v-if="orders.length">
+    <div v-if="orders.length" class="overflow-x-auto">
       <h3 class="text-lg font-bold mb-2">Bestellingen</h3>
       <table class="min-w-full border border-gray-300">
         <thead>
@@ -136,7 +136,7 @@ const addOrder = () => {
             <td class="py-2 px-4 border-b">{{ o.price }}</td>
             <td class="py-2 px-4 border-b">{{ o.email }}</td>
             <td class="py-2 px-4 border-b">{{ o.phone }}</td>
-            <td class="py-2 px-1 border-b"><i class="cursor-pointer fa fa-window-close" @click.stop="removeOrder(i)" aria-hidden="true">❌</i></td>
+            <td class="py-2 px-1 border-b"><i class="cursor-pointer" @click.stop="removeOrder(i)">❌</i></td>
           </tr>
         </tbody>
       </table>
